@@ -24,6 +24,7 @@ const UserTag = (props: userProps) => {
 
   const view = () =>{
     localStorage.setItem("userID", props.token)
+    localStorage.setItem("friendID", props.id)
     navigate("/users")
   }
 

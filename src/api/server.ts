@@ -114,7 +114,7 @@ const serverCalls = {
         }
         return await response.json()
     },
-    getUser: async (id: string) =>{
+    getUser: async (id: string|null|undefined) =>{
         const response = await fetch(`http://127.0.0.1:5000/api/getUser/${id}`,{
             method: "GET",
             headers:{
@@ -135,6 +135,21 @@ const serverCalls = {
                 'Access-Control-Allow-Origin': '*',
                 'x-access-token': `Bearer ${token}`
             }
+        })
+        if (!response.ok){
+            throw new Error('Failed to fetch data from the server')
+        }
+        return await response.json()
+    },
+    updateProfile: async (data: any) =>{
+        const response = await fetch(`http://127.0.0.1:5000/api/update`,{
+            method: "PUT",
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'x-access-token': `Bearer ${data.token}`
+            },
+            body: JSON.stringify(data)
         })
         if (!response.ok){
             throw new Error('Failed to fetch data from the server')

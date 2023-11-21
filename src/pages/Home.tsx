@@ -3,7 +3,7 @@ const Home = () => {
   return (
     <div>
         <div className="flex grow justify-center">
-            <div className="w-1/2 shadow-xl rounded-lg">
+            <div className="w-1/2 mt-20 shadow-xl rounded-lg">
                 <p className="text-center">
                 Welcome to the Golf Lab! The gof lab is designed to help you improve
                 your game and become the best golfer you can be. You can add notes to keep track

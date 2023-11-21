@@ -18,6 +18,7 @@ const Friend = (props: friendProps) => {
 
     const view = () =>{
         localStorage.setItem("userID", userData.token)
+        localStorage.setItem("friendID", props.friend_id)
         navigate("/users")
     }
 
