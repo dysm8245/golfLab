@@ -1,20 +1,23 @@
 import useGetFriends from "../custom-hooks/GetFriends"
 import Friend from "../components/Friend"
-import useGetUser from "../custom-hooks/GetUser"
-import useGetProfile from "../custom-hooks/GetProfile"
+import useGetCurrent from "../custom-hooks/GetCurrentUser"
 
 const Profile = () => {
   // const {user} = useGetUser()
   const {friendData} = useGetFriends()
-  const {user, getUser} = useGetUser()
-  getUser
-  console.log(user)
+  const {current} = useGetCurrent()
 
   return (
     <>
       <div className="grid grid-cols-3">
         <div>
-
+          <div className="flex grow">
+            <div className="inline-flex m-5">
+              <h1 className="mx-2">Username:</h1>
+              <h1 className="text-lg font-bold">{current.username}</h1>
+              <button className="mx-2 p-2 bg-green-500 rounded-lg">update</button>
+            </div>
+          </div>
         </div>
         <div>
           

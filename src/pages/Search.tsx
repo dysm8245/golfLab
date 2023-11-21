@@ -6,14 +6,6 @@ const Search = () => {
         <div className="flex grow justify-center mt-12">
             <SearchForm/>
         </div>
-        {/* <div className="grid grid-cols-2">
-            <div>
-
-            </div>
-            <div>
-
-            </div>
-        </div> */}
     </div>
   )
 }

@@ -6,9 +6,7 @@ const useGetNotes = (id?: string|null|undefined) =>{
     const[noteData, setNoteData] = useState<[]>([])
     const {user} = useGetUser()
     const userInfo: any = user
-    if(user){
-        console.log("user")
-    }
+
     const handleGetData = async () =>{
         if(id){
             const data = await serverCalls.getNotes(id)

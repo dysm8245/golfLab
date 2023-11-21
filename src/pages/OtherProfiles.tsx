@@ -11,7 +11,7 @@ const OtherProfiles = () => {
     const id = localStorage.getItem("userID")
 
     const {noteData} = useGetNotes(id)
-    console.log(noteData)
+
   return (
     <div>
         <div className="flex grow justify-center mt-20">
