@@ -1,7 +1,7 @@
 
 const serverCalls = {
     signUp: async(data: any) =>{
-        const response = await fetch("http://127.0.0.1:5000/api/signin",{
+        const response = await fetch("https://golflabserver.onrender.com/api/signin",{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ const serverCalls = {
         return await response.json()
     },
     getNotes: async (token: string) =>{
-        const response = await fetch("http://127.0.0.1:5000/api/getNotes",{
+        const response = await fetch("https://golflabserver.onrender.com/api/getNotes",{
             method: "GET",
             headers:{
                 'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const serverCalls = {
         return await response.json()
     },
     addNotes: async (data: any) =>{
-        const response = await fetch("http://127.0.0.1:5000/api/addNote",{
+        const response = await fetch("https://golflabserver.onrender.com/api/addNote",{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const serverCalls = {
         return await response.json()
     },
     deleteNote: async (data: any) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/deleteNote/${data.id}`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/deleteNote/${data.id}`,{
             method: "DELETE",
             headers:{
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const serverCalls = {
         return await response.json()
     },
     searchUser: async (data: any) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/getUser/search`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/getUser/search`,{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const serverCalls = {
         return await response.json()
     }, 
     addFriend: async (data: any) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/addFriend/${data.id}`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/addFriend/${data.id}`,{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const serverCalls = {
         return await response.json()
     },
     getFriends: async (token: string) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/getFriends`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/getFriends`,{
             method: "GET",
             headers:{
                 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const serverCalls = {
         return await response.json()
     },
     removeFriend: async (data: any) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/removeFriend/${data.id}`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/removeFriend/${data.id}`,{
             method: "DELETE",
             headers:{
                 'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const serverCalls = {
         return await response.json()
     },
     getUser: async (id: string|null|undefined) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/getUser/${id}`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/getUser/${id}`,{
             method: "GET",
             headers:{
                 'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ const serverCalls = {
         return await response.json()
     },
     getProfile: async (token: string) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/getUser`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/getUser`,{
             method: "GET",
             headers:{
                 'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ const serverCalls = {
         return await response.json()
     },
     updateProfile: async (data: any) =>{
-        const response = await fetch(`http://127.0.0.1:5000/api/update`,{
+        const response = await fetch(`https://golflabserver.onrender.com/api/update`,{
             method: "PUT",
             headers:{
                 'Content-Type': 'application/json',
