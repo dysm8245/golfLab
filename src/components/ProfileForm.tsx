@@ -6,9 +6,9 @@ import serverCalls from '../api/server'
 const ProfileForm = () => {
     const {register, handleSubmit} = useForm({})
     const {user, getUser} = useGetUser()
+    getUser
 
     const onSubmit = async (data: any) =>{
-        getUser
         const info: Object = {
             username: data.Username,
             best: data.bestScore,
@@ -16,7 +16,7 @@ const ProfileForm = () => {
             handicap: data.Handicap,
             token: user.uid
         }
-        serverCalls.updateProfile(info)
+        await serverCalls.updateProfile(info)
         location.reload()
     }
 

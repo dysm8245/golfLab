@@ -8,21 +8,22 @@ interface noteProps{
 }
 
 const Note = (props: noteProps) => {
-    const {user} = useGetUser()
+    const {user, getUser} = useGetUser()
+    getUser
 
 
-    const onClick = () =>{
+    const onClick = async () =>{
         const data = {
             id: props.id,
             token: user.uid
         }
-        serverCalls.deleteNote(data)
+        await serverCalls.deleteNote(data)
         location.reload()
     }
 
   return (
     <>
-        <div className="flex grow justify-center m-12">
+        <div className="flex grow justify-center mb-12">
             <div className="w-2/3 min-h-min shadow-xl rounded-lg grid grid-cols-8 border border-black">
                 {props.id?(
                     <div>

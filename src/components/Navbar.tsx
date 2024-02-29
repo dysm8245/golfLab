@@ -46,6 +46,7 @@ const Navbar = () => {
 
   return (
     <>
+    <div className="">
         <nav className="flex grow h-12 bg-green-500">
             <div className="flex justify-start items-center grow">
                 <h1 className="mx-16 font-bold">
@@ -68,9 +69,6 @@ const Navbar = () => {
                             <div className="hover:text-white">
                                 <a href="/search">Search</a>
                             </div>
-                            <li className="hover:text-white">
-                                <a href="/notes">Notes</a>
-                            </li>
                             <li className="hover:text-white">
                                 <a href="/profile">Profile</a>
                             </li>
@@ -118,7 +116,7 @@ const Navbar = () => {
         ):(
             <></>
         )}
-        
+    </div>
     </>
   )
 }

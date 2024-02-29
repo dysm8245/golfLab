@@ -12,7 +12,6 @@ const Friend = (props: friendProps) => {
     const {userData} = useGetProfile(props.friend_id)
     const {user, getUser} = useGetUser()
     getUser
-    console.log(user)
     const navigate = useNavigate()
     // console.log(userData)
 
@@ -22,30 +21,30 @@ const Friend = (props: friendProps) => {
         navigate("/users")
     }
 
-    const remove = () =>{
+    const remove = async () =>{
         const data: Object = {
             id: props.id,
             token: user.uid
         }
-        serverCalls.removeFriend(data)
+        await serverCalls.removeFriend(data)
         location.reload()
     }
 
   return (
     <div>
-        <div className="flex px-2 justify-center">
-            <div className="flex p-2 w-96 align-middle bg-slate-300 border border-black">
-                <div className="grid grid-cols-3">
-                    <div>
-                        <button onClick={remove} className="hover:text-white">X</button>
-                        <p className="">Username:</p>
-                    </div>
-                    <div className="overflow-hidden">
-                        <p className="mt-6">{userData.username}</p>
-                    </div>
-                    <div className="justify-end">
-                        <button onClick={view} className="p-2 mr-2 bg-green-500 rounded-xl">View Profile</button>
-                    </div>
+        <div className="flex align-middle p-5 bg-slate-300 border border-black">
+            <div className="grid grid-cols-4 auto-cols-max">
+                <div className="flex grow items-center">
+                    <p className="text-xs lg:text-xl font-bold">Username:</p>
+                </div>
+                <div className="flex grow items-center">
+                    <p className="text-xs lg:text-xl">{userData.username}</p>
+                </div>
+                <div className="flex grow items-center justify-center">
+                    <button onClick={view} className="bg-green-500 rounded-xl p-1">View Profile</button>
+                </div>
+                <div className="flex grow items-center justify-end">
+                    <button onClick={remove} className="bg-red-500 rounded-xl p-1">Remove Friend</button>
                 </div>
             </div>
         </div>

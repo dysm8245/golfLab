@@ -156,6 +156,21 @@ const serverCalls = {
         }
         return await response.json()
     },
+    addProfilePic: async (data: any) =>{
+        const response = await fetch(`https://golflabserver.onrender.com/api/addPic`,{
+            method: "PUT",
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'x-access-token': `Bearer ${data.token}`
+            },
+            body: JSON.stringify(data)
+        })
+        if (!response.ok){
+            throw new Error('Failed to fetch data from the server')
+        }
+        return await response.json()
+    },
 
 }
 

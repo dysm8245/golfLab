@@ -1,9 +1,11 @@
+import Background from "../assets/golfcourse.jpg"
 
 const Home = () => {
   return (
     <div>
+      <div style={{backgroundImage: `url(${ Background })`}} className="h-screen bg-cover bg-fixed">
         <div className="flex grow justify-center">
-            <div className="w-1/2 mt-20 shadow-xl rounded-lg">
+            <div className="w-1/2 mt-20 shadow-xl rounded-lg bg-white">
                 <p className="text-center">
                 Welcome to the Golf Lab! The gof lab is designed to help you improve
                 your game and become the best golfer you can be. You can add notes to keep track
@@ -13,6 +15,7 @@ const Home = () => {
                 </p>
             </div>
         </div>
+      </div>
     </div>
   )
 }

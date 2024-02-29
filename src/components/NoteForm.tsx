@@ -10,16 +10,14 @@ import serverCalls from '../api/server'
 const NoteForm = () => {
     const {register, handleSubmit} = useForm({})
     const {user, getUser} = useGetUser()
-    // const navigate = useNavigate()
-    // const store: any = useStore()
+    getUser
 
     const onSubmit = async (data: any) =>{
-        getUser
         const info: Object = {
             message: data.Note,
             token: user.uid
         }
-        serverCalls.addNotes(info)
+        await serverCalls.addNotes(info)
         location.reload()
     }
 

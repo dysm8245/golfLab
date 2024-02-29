@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react'
 import serverCalls from "../api/server.ts"
-import useGetUser from './GetUser.ts'
+import {auth} from "../config/firebase.ts"
+import { onAuthStateChanged } from 'firebase/auth'
 
 const useGetCurrent = () =>{
     const[current, setCurrent] = useState<any>([])
-    const {user} = useGetUser()
     
     const handleGetData = async () =>{
-        const data = await serverCalls.getProfile(user.uid)
-        // console.log(data)
-        setCurrent(data)
+        onAuthStateChanged(auth, async (user) =>{
+            if(user){
+                const data = await serverCalls.getProfile(user.uid)
+                setCurrent(data)
+            }
+            else{
+                console.log("Not logged in")
+            }
+        })
     }
 
     useEffect(() =>{
         handleGetData()
-    },[user])
+    },[])
 
     return {current, getCurrent:handleGetData}
 }

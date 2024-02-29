@@ -1,22 +1,28 @@
 import { useState, useEffect } from 'react'
 import serverCalls from "../api/server.ts"
-import useGetUser from './GetUser.ts'
+import {auth} from "../config/firebase.ts"
+import { onAuthStateChanged } from 'firebase/auth'
 
 const useGetFriends = () =>{
     const[friendData, setFriendData] = useState<[]>([])
-    const {user} = useGetUser()
-    const userInfo: any = user
 
     const handleGetData = async () =>{
-        const data = await serverCalls.getFriends(userInfo.uid)
-        setFriendData(data)
+        onAuthStateChanged(auth, async (user) =>{
+            if(user){
+                const data = await serverCalls.getFriends(user.uid)
+                setFriendData(data)
+            }
+            else{
+                console.log("Not logged in")
+            }
+        })
     }
 
     useEffect(() =>{
         handleGetData()
-    },[user])
+    },[])
 
-    return {user, friendData, getFriends:handleGetData}
+    return {friendData, getFriends:handleGetData}
 }
 
 export default useGetFriends
