@@ -101,9 +101,6 @@ const Navbar = () => {
                                 <a href="/search">Search</a>
                             </div>
                             <div className="flex w-32 border border-black bg-green-300 justify-center rounded-lg">
-                                <a href="/notes">Notes</a>
-                            </div>
-                            <div className="flex w-32 border border-black bg-green-300 justify-center rounded-lg">
                                 <a href="/profile">Profile</a>
                             </div>
                             <div className="flex w-32 border border-black bg-green-300 justify-center rounded-lg">
