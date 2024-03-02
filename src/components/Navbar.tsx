@@ -85,7 +85,7 @@ const Navbar = () => {
         </nav>
         {open?(
             <div className="flex grow justify-end">
-                <div className="grid grid-cols-1 md:hidden absolute">
+                <div className="grid grid-cols-1 md:hidden fixed mt-12">
                     {user == null?(
                         <>
                             <div className="flex w-32 border border-black bg-green-300 justify-center rounded-lg">
