@@ -100,7 +100,7 @@ const Profile = () => {
             <div className="grid grid-cols-1">
               <div className="mt-10">
                 <div className="flex grow">
-                  <h1 className="text-2xl">Welcome <b>{current.username}</b></h1>
+                  <h1 className="text-2xl mt-5">Welcome <b>{current.username}</b></h1>
                 </div>
               </div>
               <div>
@@ -154,7 +154,7 @@ const Profile = () => {
             <>
               <div>
                 <div className="flex grow justify-center mt-10">
-                  <h1 className="font-bold text-xl">Your Notes</h1>
+                  <h1 className="font-bold text-xl mt-6">Your Notes</h1>
                 </div>
                 <div className="flex grow justify-center">
                   <div className="mt-5">
@@ -179,7 +179,7 @@ const Profile = () => {
         </div>
         <div className="col-span-2 mt-10">
           <div className="flex grow justify-center">
-            <h1 className="font-bold text-xl">Your Friends</h1>
+            <h1 className="font-bold text-xl mt-6">Your Friends</h1>
           </div>
           <div className="flex grow justify-center">
             <div className="overflow-auto mt-5 sm:w-1/2 xl:w-full max-h-40">
