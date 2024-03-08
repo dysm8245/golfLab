@@ -1,10 +1,14 @@
 import Background from "../assets/golfcourse.jpg"
+import Golfers from "../components/Golfers"
+import Leaderboard from "../components/Leaderboard"
 
 const Home = () => {
+  
   return (
     <div>
-      <div style={{backgroundImage: `url(${ Background })`}} className="h-screen bg-cover bg-fixed">
-        <div className="flex grow justify-center">
+      <div style={{backgroundImage: `url(${ Background })`}} className="flex flex-row justify-center mx-auto bg-center bg-cover bg-fixed">
+        <div className="flex flex-col grow justify-center">
+          <div className="flex grow justify-center">
             <div className="w-1/2 mt-20 shadow-xl rounded-lg bg-white">
                 <p className="text-center">
                 Welcome to the Golf Lab! The gof lab is designed to help you improve
@@ -14,6 +18,15 @@ const Home = () => {
                 and go golfing!
                 </p>
             </div>
+          </div>
+          <div className="flex flex-col lg:flex-row grow mt-10 lg:mt-72">
+            <div className="flex grow justify-center m-8">
+              <Golfers />
+            </div>
+            <div className="flex grow justify-center m-8">
+              <Leaderboard />
+            </div>
+          </div>
         </div>
       </div>
     </div>

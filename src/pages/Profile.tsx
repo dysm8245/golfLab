@@ -182,7 +182,7 @@ const Profile = () => {
             <h1 className="font-bold text-xl mt-6">Your Friends</h1>
           </div>
           <div className="flex grow justify-center">
-            <div className="overflow-auto mt-5 sm:w-1/2 xl:w-full max-h-40">
+            <div className="overflow-auto mt-5 sm:w-1/2 xl:w-full max-h-100">
               {friendData.map((friend: any) => (
                 <Friend id={friend.id} friend_id={friend.friend_id} />
               ))}

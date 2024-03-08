@@ -6,19 +6,21 @@ interface userProps{
   id: string,
   token: string,
   username: string,
-  email: string
+  email: string,
+  friend: boolean
 }
 
 const UserTag = (props: userProps) => {
   const navigate = useNavigate()
   const {user} = useGetUser()
 
-  const addFriend = () =>{
+  const addFriend = async () =>{
     const data: Object = {
       id: props.id,
       token: user.uid
     }
-    const friend = serverCalls.addFriend(data)
+    const friend = await serverCalls.addFriend(data)
+    navigate("/profile")
     console.log(friend)
   }
 
@@ -32,17 +34,21 @@ const UserTag = (props: userProps) => {
     <div className="flex px-2 justify-center">
         <div className="flex p-2 w-96 align-middle bg-slate-300 border border-black">
           <div className="grid grid-cols-4">
-            <div>
+            <div className="flex grow items-center">
               <p className="">Username:</p>
             </div>
-            <div className="overflow-hidden">
-              <p className="">{props.username}</p>
+            <div className="flex grow items-center">
+              <p className="overflow-hidden">{props.username}</p>
             </div>
-            <div>
+            <div className="flex grow items-center">
               <button onClick={view} className="p-2 mr-2 bg-green-500 rounded-xl">View Profile</button>
             </div>
-            <div>
-              <button onClick={addFriend} className="p-2 bg-green-500 rounded-xl">Add Friend</button>
+            <div className="flex grow items-center">
+              {props.friend?(
+                  <div>Following</div>
+              ):(
+                <button onClick={addFriend} className="p-2 bg-green-500 rounded-xl">Add Friend</button>
+              )}
             </div>
           </div>
         </div>

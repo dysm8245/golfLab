@@ -5,8 +5,10 @@ import UserTag from "./UserTag";
 import serverCalls from "../api/server";
 import { useDispatch, useStore} from "react-redux"
 import { chooseList } from "../redux/slices/UserSlice";
+import useGetFriends from "../custom-hooks/GetFriends";
 
 const SearchForm = () => {
+    const {friendData} = useGetFriends()
     const dispatch = useDispatch()
     const store: any = useStore()
 
@@ -35,6 +37,9 @@ const SearchForm = () => {
         handleFetch()
     }, [formState, data, isValidating]);
 
+    console.log(friendData)
+    console.log(store.getState().user.userList)
+
   return (
     <div>
         <form className="bg-green-500 p-2 rounded-xl" onSubmit={handleSubmit(onSubmit)}>
@@ -43,11 +48,22 @@ const SearchForm = () => {
                 <Input {...register("Username")} name="Username" placeholder="Username"></Input>
             </div>
         </form>
-        {store.getState().user.userList.map((user: any) =>(
-            <div>
-                <UserTag id={user.id} token={user.token} username={user.username} email={user.email}/>
-            </div>
-        ))}
+        {store.getState().user.userList.map((user: any) =>{
+            if(friendData.some((friend: any) => friend.friend_id === user.id)){
+                return(
+                    <div>
+                        <UserTag friend={true} token={user.token} username={user.username} id={user.id} email={user.email}></UserTag>
+                    </div>
+                )
+            }
+            else{
+                return(
+                    <div>
+                        <UserTag friend={false} token={user.token} username={user.username} id={user.id} email={user.email}></UserTag>
+                    </div>
+                )
+            }
+        })}
     </div>
   )
 }

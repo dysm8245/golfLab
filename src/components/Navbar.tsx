@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { signInWithPopup, signOut } from "firebase/auth"
+import { signInWithPopup, signOut, setPersistence, browserSessionPersistence } from "firebase/auth"
 import { auth, provider } from "../config/firebase"
 import { useNavigate } from "react-router-dom"
 import useGetUser from "../custom-hooks/GetUser"
@@ -17,25 +17,31 @@ const Navbar = () => {
 
     const signUp = async () =>{
         // console.log(auth.currentUser)
-        if(auth.currentUser == null){
-            await signInWithPopup(auth, provider)
-            const user: any = auth.currentUser
-
-            const userInfo: Object = {
-                "email": user.email,
-                "username": user.displayName,
-                "token": user.uid
+        setPersistence(auth, browserSessionPersistence)
+        .then(async ()=>{
+            if(auth.currentUser == null){
+                await signInWithPopup(auth, provider)
+                const user: any = auth.currentUser
+    
+                const userInfo: Object = {
+                    "email": user.email,
+                    "username": user.displayName,
+                    "token": user.uid
+                }
+                serverCalls.signUp(userInfo)
+                .then(() =>{
+                    console.log("user signed up")
+                })
+                .catch(() =>{
+                    console.log("Already have an account")
+                })
+                navigate("/")
             }
-            serverCalls.signUp(userInfo)
-            .then(() =>{
-                console.log("user signed up")
-            })
-            .catch(() =>{
-                console.log("Already have an account")
-            })
             navigate("/")
-        }
-        navigate("/")
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
     // console.log(auth.currentUser)
     const logOut = async () =>{
