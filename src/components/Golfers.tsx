@@ -2,7 +2,6 @@ import UseGetGolfers from "../custom-hooks/GetGolfers"
 
 const Golfers = () => {
     const {golfers} = UseGetGolfers()
-    console.log(golfers)
 
   return (
     <div className="overflow-auto h-80 bg-white">

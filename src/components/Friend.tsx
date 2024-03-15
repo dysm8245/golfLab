@@ -33,7 +33,7 @@ const Friend = (props: friendProps) => {
   return (
     <div>
         <div className="flex align-middle p-5 bg-slate-300 border border-black">
-            <div className="grid grid-cols-4 auto-cols-max">
+            <div className="grid grid-cols-4">
                 <div className="flex grow items-center">
                     <p className="text-xs lg:text-xl font-bold">Username:</p>
                 </div>

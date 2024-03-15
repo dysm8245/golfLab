@@ -1,8 +1,11 @@
 import Background from "../assets/golfcourse.jpg"
 import Golfers from "../components/Golfers"
 import Leaderboard from "../components/Leaderboard"
+import UseGetTourneys from "../custom-hooks/GetTourneys"
 
 const Home = () => {
+
+  const {schedule} = UseGetTourneys()
   
   return (
     <div>
@@ -24,7 +27,7 @@ const Home = () => {
               <Golfers />
             </div>
             <div className="flex grow justify-center m-8">
-              <Leaderboard />
+              <Leaderboard schedule={schedule}/>
             </div>
           </div>
         </div>
