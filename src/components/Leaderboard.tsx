@@ -55,18 +55,14 @@ const Leaderboard = (props: props) => {
         handleFetch()
     }, [props.schedule])
 
+    console.log(leaderboard)
+
   return (
     <div className="overflow-auto h-80 bg-white">
         <div className="flex grow">
-            {/* <div className="flex grow justify-start">
-                <button onClick={leftClick}>left</button>
-            </div> */}
             <div className="flex grow justify-center">
                 <h1 className="text-xl font-bold text-green-500 text-center">Leaderboard at the {leaderboard.Tournament.Name}</h1>
             </div>
-            {/* <div className="flex grow justify-end">
-                <button onClick={rightClick}>right</button>
-            </div> */}
         </div>
         <div className="flex grow justify-center">
             <p className="font-bold">{leaderboard.Tournament.StartDate.slice(0,10)} to {leaderboard.Tournament.EndDate.slice(0,10)}</p>
