@@ -171,7 +171,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="flex grow justify-center mt-5">
-                    <button className="bg-green-500 p-3 rounded-full" onClick={handleOpen}>{option}</button>
+                    <button className="bg-green-500 p-3 rounded-xl" onClick={handleOpen}>{option}</button>
                 </div>
               </div>
             </>

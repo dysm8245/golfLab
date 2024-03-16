@@ -28,16 +28,16 @@ const Navbar = () => {
                     "username": user.displayName,
                     "token": user.uid
                 }
-                serverCalls.signUp(userInfo)
+                await serverCalls.signUp(userInfo)
                 .then(() =>{
                     console.log("user signed up")
                 })
                 .catch(() =>{
                     console.log("Already have an account")
                 })
-                navigate("/")
+                navigate("/profile")
             }
-            navigate("/")
+            navigate("/profile")
         })
         .catch((error)=>{
             console.log(error)
