@@ -25,12 +25,12 @@ const Home = () => {
             </div>
           </div>
           <div className="flex grow justify-center">
-            {status?(
-              <></>
-            ):(
+            {!status?(
               <div className="w-1/4 mt-20">
                 <p className="bg-red-500 text-center p-3">Please wait for server to spin up before signing in. This message will disappear once server has started.</p>
               </div>
+            ):(
+              <></>
             )}
           </div>
           <div className="flex flex-col lg:flex-row grow mt-10 lg:mt-80">

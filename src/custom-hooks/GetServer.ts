@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import serverCalls from "../api/server";
 
 const UseGetServer = () =>{
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState(false)
 
     const handleFetch = async () =>{
         await serverCalls.getServer()

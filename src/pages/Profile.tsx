@@ -23,6 +23,7 @@ const Profile = () => {
   const [file, setFile] = useState<any>("")
   const [percent, setPercent] = useState(0) //tracks download speed of profile pic
   const {friendData} = useGetFriends() //gets users friends
+  console.log(friendData)
   const {current} = useGetCurrent() //for displaying signed in users profile info
   const [open, setOpen] = useState(false) //for opening profile form
   const [upload, setUpload] = useState(false) //for opening file upload buttons

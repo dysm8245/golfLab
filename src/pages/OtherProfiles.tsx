@@ -2,6 +2,8 @@ import useGetNotes from "../custom-hooks/GetNotes"
 import Note from "../components/Note"
 import useGetProfile from "../custom-hooks/GetProfile"
 import Default from "../assets/default.jpg"
+import UseGetOtherFriends from "../custom-hooks/GetOtherFriends"
+// import Friend from "../components/Friend"
 
 interface notes{
     date: string,
@@ -15,6 +17,8 @@ const OtherProfiles = () => {
 
     const {noteData} = useGetNotes(id)
     const {userData} = useGetProfile(friend_id)
+    const {friends} = UseGetOtherFriends(id)
+    console.log(friends)
 
   return (
     <div>
@@ -68,6 +72,18 @@ const OtherProfiles = () => {
                     </div>
                 </div>
             </div>
+            {/* <div className="col-span-2 mt-10">
+                <div className="flex grow justify-center">
+                    <h1 className="font-bold text-xl mt-6">Your Friends</h1>
+                </div>
+                <div className="flex grow justify-center">
+                    <div className="overflow-auto mt-5 sm:w-1/2 xl:w-full max-h-100">
+                    {friends.map((friend: any) => (
+                        <Friend id={friend.id} friend_id={friend.friend_id} />
+                    ))}
+                    </div>
+                </div>
+            </div> */}
         </div>
         
     </div>

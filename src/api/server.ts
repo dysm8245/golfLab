@@ -104,6 +104,20 @@ const serverCalls = {
         }
         return await response.json()
     },
+    getOtherFriends: async (token: string|null|undefined) =>{
+        const response = await fetch(`http://127.0.0.1:5000/api/getOtherFriends`,{
+            method: "GET",
+            headers:{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'x-access-token': `Bearer ${token}`
+            }
+        })
+        if (!response.ok){
+            throw new Error('Failed to fetch data from the server')
+        }
+        return await response.json()
+    },
     removeFriend: async (data: any) =>{
         const response = await fetch(`https://golflabserver.onrender.com/api/removeFriend/${data.id}`,{
             method: "DELETE",
