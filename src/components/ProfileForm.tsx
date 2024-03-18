@@ -22,7 +22,7 @@ const ProfileForm = () => {
 
   return (
     <div>
-        <form className="bg-green-500 p-5 rounded-xl" onSubmit={handleSubmit(onSubmit)}>
+        <form className="p-3" onSubmit={handleSubmit(onSubmit)}>
             <Input {...register("Username")} name="Username" placeholder="Username"></Input>
             <Input {...register("bestScore")} name="bestScore" placeholder="Best Score"></Input>
             <Input {...register("favCourse")} name="favCourse" placeholder="Favorite Course"></Input>

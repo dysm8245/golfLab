@@ -9,8 +9,9 @@ const useGetFriends = () =>{
     const handleGetData = async () =>{
         onAuthStateChanged(auth, async (user) =>{
             if(user){
-                const data = await serverCalls.getFriends(user.uid)
-                setFriendData(data)
+                await serverCalls.getFriends(user.uid)
+                .then(data => setFriendData(data))
+                .catch(() => setFriendData([]))
             }
             else{
                 console.log("Not logged in")

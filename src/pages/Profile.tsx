@@ -98,6 +98,11 @@ const Profile = () => {
         <div className="col-span-1">
           <div className="flex grow justify-center">
             <div className="grid grid-cols-1">
+              {open?(
+                <Modal open={onClick} element={<ProfileForm/>}/>
+              ):( 
+                <></>
+              )}
               <div className="mt-10">
                 <div className="flex grow">
                   <h1 className="text-2xl mt-5">Welcome <b>{current.username}</b></h1>
@@ -148,10 +153,6 @@ const Profile = () => {
           </div>
         </div>
         <div className="col-span-2">
-          {open?(
-            <Modal element={<ProfileForm/>}/>
-          ):(
-            <>
               <div>
                 <div className="flex grow justify-center mt-10">
                   <h1 className="font-bold text-xl mt-6">Your Notes</h1>
@@ -159,7 +160,7 @@ const Profile = () => {
                 <div className="flex grow justify-center">
                   <div className="mt-5">
                     {openNote?(
-                      <Modal element={<NoteForm/>} />
+                      <Modal open={handleOpen} element={<NoteForm/>} />
                     ):(
                       <></>
                     )}
@@ -174,8 +175,8 @@ const Profile = () => {
                     <button className="bg-green-500 p-3 rounded-xl" onClick={handleOpen}>{option}</button>
                 </div>
               </div>
-            </>
-          )}
+            {/* </> */}
+          {/* // )} */}
         </div>
         <div className="col-span-2 mt-10">
           <div className="flex grow justify-center">

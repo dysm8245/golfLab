@@ -42,7 +42,7 @@ const SearchForm = () => {
 
   return (
     <div>
-        <form className="bg-green-500 p-2 rounded-xl" onSubmit={handleSubmit(onSubmit)}>
+        <form className="p-2 rounded-xl" onSubmit={handleSubmit(onSubmit)}>
             <div className="inline-flex align-middle">
                 <p className="mt-6">Search Users here: </p>
                 <Input {...register("Username")} name="Username" placeholder="Username"></Input>

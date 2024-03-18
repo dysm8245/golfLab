@@ -1,12 +1,14 @@
 import Background from "../assets/golfcourse.jpg"
 import Golfers from "../components/Golfers"
 import Leaderboard from "../components/Leaderboard"
+import UseGetServer from "../custom-hooks/GetServer"
 import UseGetTourneys from "../custom-hooks/GetTourneys"
 
 const Home = () => {
 
   const {schedule} = UseGetTourneys()
-  
+  const {status} = UseGetServer()
+
   return (
     <div>
       <div style={{backgroundImage: `url(${ Background })`}} className="flex flex-row justify-center mx-auto bg-center bg-cover bg-fixed">
@@ -22,11 +24,20 @@ const Home = () => {
                 </p>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row grow mt-10 lg:mt-72">
-            <div className="flex grow justify-center m-8">
+          <div className="flex grow justify-center">
+            {!status?(
+              <div className="w-1/4 mt-20">
+                <p className="bg-red-500 text-center p-3">Please wait for server to spin up before signing in. This message will disappear once server has started.</p>
+              </div>
+            ):(
+              <></>
+            )}
+          </div>
+          <div className="flex flex-col lg:flex-row grow mt-10 lg:mt-80">
+            <div className="flex grow justify-center m-5">
               <Golfers />
             </div>
-            <div className="flex grow justify-center m-8">
+            <div className="flex grow justify-center m-5">
               <Leaderboard schedule={schedule}/>
             </div>
           </div>
