@@ -16,7 +16,6 @@ const Navbar = () => {
     }
 
     const signUp = async () =>{
-        // console.log(auth.currentUser)
         setPersistence(auth, browserSessionPersistence)
         .then(async ()=>{
             if(auth.currentUser == null){
@@ -43,7 +42,7 @@ const Navbar = () => {
             console.log(error)
         })
     }
-    // console.log(auth.currentUser)
+
     const logOut = async () =>{
         await signOut(auth)
         getUser

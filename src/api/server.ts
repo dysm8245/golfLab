@@ -1,8 +1,8 @@
 
 const serverCalls = {
-    getServer: async() =>{
-        const response = await fetch("https://golflabserver.onrender.com/api/")
-        return await response.json()
+    getServer: () =>{
+        const response = fetch("https://golflabserver.onrender.com/api/")
+        return response
     },
     signUp: async(data: any) =>{
         const response = await fetch("https://golflabserver.onrender.com/api/signin",{

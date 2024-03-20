@@ -4,8 +4,8 @@ import serverCalls from "../api/server";
 const UseGetServer = () =>{
     const [status, setStatus] = useState(false)
 
-    const handleFetch = async () =>{
-        await serverCalls.getServer()
+    const handleFetch = () =>{
+        serverCalls.getServer()
         .then(() => setStatus(true))
         .catch(() => setStatus(false))
     }

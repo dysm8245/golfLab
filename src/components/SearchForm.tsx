@@ -37,8 +37,6 @@ const SearchForm = () => {
         handleFetch()
     }, [formState, data, isValidating]);
 
-    console.log(friendData)
-    console.log(store.getState().user.userList)
 
   return (
     <div>

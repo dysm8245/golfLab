@@ -55,7 +55,6 @@ const Leaderboard = (props: props) => {
         handleFetch()
     }, [props.schedule])
 
-    console.log(leaderboard)
 
   return (
     <div className="overflow-auto h-80 bg-white">

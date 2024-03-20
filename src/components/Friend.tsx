@@ -13,7 +13,6 @@ const Friend = (props: friendProps) => {
     const {user, getUser} = useGetUser()
     getUser
     const navigate = useNavigate()
-    // console.log(userData)
 
     const view = () =>{
         localStorage.setItem("userID", userData.token)
